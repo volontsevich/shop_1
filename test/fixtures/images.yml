@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  path: MyString
+  is_main: false
+
+two:
+  product_id: 
+  path: MyString
+  is_main: false

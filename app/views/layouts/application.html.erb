@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Viktor's first shop</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+      <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body style="background-image:url(../assets/back.jpg); background-size: cover;">
+<div class="container">
+  <div class="row" style="background: linear-gradient(to right, rgba(239, 103, 87,1), rgba(0,0,0,0));">
+    <div class="col-xs-6">
+      <h1><%= link_to "Plants Store", root_path, class: "store" %></h1>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary">
+          <% if user_signed_in? %>
+              <%= current_user.email %>
+          <% else %>
+              Login
+          <% end %>
+        </button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <% if user_signed_in? %>
+              <li><%= link_to "Current cart", cart_path %></li>
+              <li><%= link_to "My orders", orders_show_path %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+        </ul>
+
+      </div>
+      <h1 class="cart-text"><%= render 'layouts/cart_text'%></h1>
+    </div>
+  </div>
+  <hr>
+  <%= yield %>
+
+
+</div>
+</body>
+</html>
