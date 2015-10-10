@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: shop_production
+  database: shop_development
   username: spadmin
   password: password
