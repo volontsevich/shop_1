@@ -3,8 +3,8 @@
   <div class="row">
 
     <div class="col-xs-2">
-      <h4><%= link_to image_tag(Image.find_by_product_id(product.id).path, :class => 'img-rounded', :style => "width:100px;height:100px"),
-                      {:action => 'index', :controller => 'products'} %>
+      <h4><%= link_to image_tag(Image.find_by_product_id(product.id).path, :class => 'img-rounded',
+                                :style => "width:100px;height:100px"), product %>
       </h4>
     </div>
 
