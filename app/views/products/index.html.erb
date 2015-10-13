@@ -1,7 +1,6 @@
-<h2 class="text-center">Products for Sale</h2>
+<div id="products">
+  <h2 class="text-center">Products for Sale</h2>
 
-
-<div>
   <% @products.each do |product| %>
       <%= render "product_row", product: product, order_item: @order_item %>
   <% end %>

@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Product.delete_all
-Product.create! id: 1, name: "Salt", price: 0.19, available: true, descr: "Description 1"
-Product.create! id: 2, name: "Sugar", price: 0.29, available: true, descr: "Description 2"
-Product.create! id: 3, name: "Species", price: 0.39, available: true, descr: "Description 3"
-Product.create! id: 4, name: "Species", price: 0.49, available: true, descr: "Description 4"
-Product.create! id: 5, name: "Salt", price: 0.59, available: true, descr: "Description 5"
-Product.create! id: 6, name: "Sugar", price: 0.69, available: true, descr: "Description 6"
-Product.create! id: 7, name: "Species", price: 0.79, available: true, descr: "Description 7"
-Product.create! id: 8, name: "Species", price: 0.89, available: true, descr: "Description 8"
+Product.create! id: 1, name: "Fortunella Margarita", price: 6.95, available: true, descr: "Кумкват Маргарита является самым распространенным кумкватом в мире."
+Product.create! id: 2, name: "Adenium obesum", price: 2.17, available: true, descr: "Небольшой размер, медленный рост и раннее, обильное цветение делает Адениум идеальным растением для содержания в квартире."
+Product.create! id: 3, name: "Amorphophallus bulbiter", price: 2.61, available: true, descr: "Одно из самых оригинальных и противоречивых комнатных растений: необыкновенно красивый крупный цветок, великолепный огромный лист - и довольно неприятный аромат."
+Product.create! id: 4, name: "Bergenia crassitolia", price: 2.39, available: true, descr: "Эффектное вечнозеленое зимостойкое растение с красивыми и очень полезными листьями."
+Product.create! id: 5, name: "Haemanthus albitlos", price: 3.48, available: true, descr: "Самый популярный из вечнозеленых гемантусов. Красивые листья, продолжительное цветение, яркие красные ягоды - отличный выбор для тенистых садов, веранд, балконов."
+Product.create! id: 6, name: "Gynura aurantiaca", price: 1.74, available: true, descr: "С первого взгляда кажется, что это не живое растение, а яркая и мягкая детская игрушка. На ярком солнце растение буквально излучает фиолетовый свет и кажется выходцем с другой планеты."
+Product.create! id: 7, name: "Punica granatum nana", price: 3.26, available: true, descr: "Небольшое растение, высотой не более 1 метра, с мелкими зелеными листьями, очень красивыми крупными ярко-красными цветами и небольшими красными плодами. Эффектно смотрится выращенным в форме штамбового деревца."
+Product.create! id: 8, name: "Callistemon", price: 3.48, available: true, descr: "Каллистемон привлекает внимание своими необычными цветами: многочисленные цветы собраны в колосовидное соцветие, лепестки практически отсутствуют, но длинные ярко-красные, с желтым кончиком, тычинки никого не оставят равнодушным."
 
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Progress"

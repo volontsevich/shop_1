@@ -20,3 +20,24 @@
 .light{
     color: #fbffe3;
 }
+
+body{
+    background-image:url(../assets/back.jpg);
+    background-size: cover;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+* html #wrapper {
+    height: 100%;
+}
+#page-buffer {
+    height: 50px;
+}
