@@ -8,10 +8,14 @@
     </div>
 <% end %>
 <% if @order_items.size == 0 %>
+    <div class="well">
     <h1 class="text-center">
-      There are no items in your shopping cart. Please <%= link_to "go back", root_path %> and add some items to your
+      There are no items in your shopping cart.
+    </h1>
+    <h1 class="text-center">Please <%= link_to "go back", root_path %> and add some items to your
       cart.
     </h1>
+    </div>
 <% else %>
     <% @order_items.each do |order_item| %>
 
@@ -21,6 +25,7 @@
     <div class="well">
       <div class="row text-right">
         <h2>Order subtotal is <%= number_to_currency current_order.subtotal %></h2>
+
         <div class="btn-group">
           <%= link_to "Pay this order", "#", class: "btn btn-primary" %>
         </div>
