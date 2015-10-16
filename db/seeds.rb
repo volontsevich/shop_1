@@ -31,3 +31,4 @@ Image.create! id:6, product_id: 6, path: "6.jpeg", is_main: true
 Image.create! id:7, product_id: 7, path: "7.jpeg", is_main: true
 Image.create! id:8, product_id: 8, path: "8.jpeg", is_main: true
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
