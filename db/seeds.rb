@@ -21,14 +21,5 @@ OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
 
-Image.delete_all
-Image.create! id:1, product_id: 1, path: "1.jpeg", is_main: true
-Image.create! id:2, product_id: 2, path: "2.jpeg", is_main: true
-Image.create! id:3, product_id: 3, path: "3.jpeg", is_main: true
-Image.create! id:4, product_id: 4, path: "4.jpeg", is_main: true
-Image.create! id:5, product_id: 5, path: "5.jpeg", is_main: false
-Image.create! id:6, product_id: 6, path: "6.jpeg", is_main: true
-Image.create! id:7, product_id: 7, path: "7.jpeg", is_main: true
-Image.create! id:8, product_id: 8, path: "8.jpeg", is_main: true
-
+AdminUser.delete_all
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
