@@ -97,18 +97,6 @@ ActiveRecord::Schema.define(version: 20151019080502) do
     t.text     "descr"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string   "img1_file_name"
-    t.string   "img1_content_type"
-    t.integer  "img1_file_size"
-    t.datetime "img1_updated_at"
-    t.string   "img2_file_name"
-    t.string   "img2_content_type"
-    t.integer  "img2_file_size"
-    t.datetime "img2_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

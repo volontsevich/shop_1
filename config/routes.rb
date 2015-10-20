@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'orders/show'
 
+  get 'orders/index'
+
   get 'order_items/create'
 
   get 'order_items/update'

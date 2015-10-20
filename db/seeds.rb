@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Image.delete_all
 Product.delete_all
 Product.create! id: 1, name: "Fortunella Margarita", price: 6.95, available: true, descr: "Кумкват Маргарита является самым распространенным кумкватом в мире."
 Product.create! id: 2, name: "Adenium obesum", price: 2.17, available: true, descr: "Небольшой размер, медленный рост и раннее, обильное цветение делает Адениум идеальным растением для содержания в квартире."
@@ -23,3 +24,15 @@ OrderStatus.create! id: 4, name: "Cancelled"
 
 AdminUser.delete_all
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+
+Image.create! id:1, product_id: 1, path: "1.jpeg", is_main: true
+Image.create! id:2, product_id: 2, path: "2.jpeg", is_main: true
+Image.create! id:3, product_id: 3, path: "3.jpeg", is_main: true
+Image.create! id:4, product_id: 4, path: "4.jpeg", is_main: true
+Image.create! id:5, product_id: 5, path: "5.jpeg", is_main: true
+Image.create! id:6, product_id: 6, path: "6.jpeg", is_main: true
+Image.create! id:7, product_id: 7, path: "7.jpeg", is_main: true
+Image.create! id:8, product_id: 8, path: "8.jpeg", is_main: true
+Image.create! id:9, product_id: 1, path: "1_1.jpeg", is_main: false
+Image.create! id:10, product_id: 1, path: "1_2.jpeg", is_main: false

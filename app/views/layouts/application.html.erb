@@ -40,7 +40,7 @@
           <ul class="dropdown-menu" role="menu">
             <% if user_signed_in? %>
                 <li><%= link_to "Current cart", cart_path %></li>
-                <li><%= link_to "My orders", orders_show_path %></li>
+                <li><%= link_to "My orders", orders_index_path %></li>
                 <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
             <% else %>
                 <li><%= link_to "Sign in", new_user_session_path %></li>
