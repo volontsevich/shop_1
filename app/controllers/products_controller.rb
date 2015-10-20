@@ -4,11 +4,13 @@ class ProductsController < ApplicationController
   def index
 
     @order_item = current_order.order_items.new
-    @search = Product.search do
-      fulltext 'Adenium'
+
+    if params[:search]
+      @products = Product.search(params[:search])
+    else
+      @products = Product.all
     end
-    @products = @search.result
-    puts @search.result
+
   end
 
   def show
