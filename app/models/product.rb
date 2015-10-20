@@ -4,4 +4,10 @@ class Product < ActiveRecord::Base
   default_scope {
     where(available: true)
   }
+  searchable do
+    text :descr
+    integer :price
+    boolean :available
+  end
+
 end

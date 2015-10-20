@@ -2,8 +2,13 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
+
     @order_item = current_order.order_items.new
+    @search = Product.search do
+      fulltext 'Adenium'
+    end
+    @products = @search.result
+    puts @search.result
   end
 
   def show

@@ -1,4 +1,10 @@
 <div id="products">
+  <%= form_tag products_index_path, :method => :get do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+  <% end %>
   <h2 class="text-center">Products for Sale</h2>
 
   <% @products.each do |product| %>
