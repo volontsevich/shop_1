@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
 
     if params[:search]
       @products = Product.search(params[:search])
+    elsif params[:price]
+      @products = Product.filter(params.slice(:price))
     else
       @products = Product.all
     end
