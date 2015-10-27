@@ -13,5 +13,9 @@ ActiveAdmin.register Image do
 #   permitted
 # end
 
-
+  controller do
+    def permitted_params
+      params.permit image: [:product, :path, :is_main]
+    end
+  end
 end

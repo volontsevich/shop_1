@@ -13,52 +13,62 @@
  *= require_tree .
  *= require_self
  */
-.store{
-    font-family: 'Times New Roman', cursive;
-    color: #ffdd35;
-}
-.light{
-    color: #fbffe3;
+.store {
+
+  font-family: 'Times New Roman', cursive;
+  color: #ffdd35;
+
 }
 
-body{
+
+.light {
+  color: #fbffe3;
+}
+
+body {
   background: asset_url('back.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
 
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-#wrapper {
-    min-height: 100%;
-    margin-bottom: -50px;
-}
-* html #wrapper {
-    height: 100%;
-}
-#page-buffer {
-    height: 50px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-h2.wtext, .field label{
-  color:white;
+#wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
 }
+
+* html #wrapper {
+  height: 100%;
+}
+
+#page-buffer {
+  height: 50px;
+}
+
+h2.wtext, .field label {
+  color: white;
+}
+
 .well {
   background-color: rgba(245, 245, 245, 0.75);
 }
 
-.main{
-  padding-top:100px;
+.main {
+  padding-top: 100px;
 }
-.plants-menu{
-  background:linear-gradient(to bottom, rgba(255, 255, 255,0), rgba(255, 255, 255,0.2));
+
+.plants-menu {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
   margin-left: -1px;
   margin-right: -1px;
+  padding-bottom: 7px;
 }
-.plants-menu:hover {
-  background:linear-gradient(to bottom, rgba(255, 255, 255,0), rgba(255, 255, 255,0.5));
 
+.plants-menu:hover {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
 }

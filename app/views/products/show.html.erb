@@ -1,71 +1,60 @@
 <div id="product_info" class="well">
   <h2 class="text-center">  <%= @product.name %>
   </h2>
+  <% standard_foto_path="logo.jpeg" %>
+  <% first_image_path=standard_foto_path %>
+  <% check=Image.where(:product_id => @product.id, :is_main => true).first %>
+  <% if !check.nil? %>
+      <% first_image_path=check.path %>
+  <% end %>
+  <% first_image_absent= !File.exist?(Rails.root.join('app', 'assets', 'images', first_image_path)) %>
+  <% if first_image_absent %>
+      <% first_image_path=standard_foto_path %>
+  <% end %>
 
-  <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-content modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>You must be logged in!</h4>
-        </div>
-  </div>
+  <% not_main_fotos=Image.where(:product_id => @product.id, :is_main => false) %>
+
+  <% second_image_path=standard_foto_path %>
+  <% if !not_main_fotos.first.nil? %>
+      <% second_image_path= not_main_fotos.first.path %>
+  <% end %>
+  <% third_image_path=standard_foto_path %>
+  <% if second_image_path!=standard_foto_path %>
+      <% if (not_main_fotos.length==1) %>
+          <% third_image_path=standard_foto_path %>
+      <% else %>
+          <% third_image_path= not_main_fotos.where.not(:path => second_image_path).first.path %>
+      <% end %>
+  <% end %>
+
 
   <div class="row">
     <div class="col-xs-3">
-      <div class="text-center">
-        <% standard_foto_path="logo.jpeg" %>
-        <% main_image_path=(Image.where(:product_id => @product.id, :is_main => true).first.path) %>
-        <% main_image_absent= !File.exist?(Rails.root.join('app', 'assets', 'images', main_image_path)) %>
-        <% if !main_image_absent %>
-            <%= image_tag(main_image_path, :class => 'img-rounded',
-                          :style => "width:275px;height:auto") %>
-        <% else %>
-            <%= image_tag(standard_foto_path, :class => 'img-rounded',
-                          :style => "width:275px;height:auto") %>
-        <% end %>
+      <div class="text-center" data-toggle="modal" data-target="#myModal">
+        <%= image_tag(first_image_path, :class => 'img-rounded',
+                      :style => "width:275px;height:auto") %>
       </div>
       <br>
 
       <div class="row">
-        <div class="col-xs-6">
-          <% first_additional_image_path="" %>
-
-          <% additional_images_absent=Image.where(:product_id => @product.id, :is_main => false).first.nil? %>
-          <% if !additional_images_absent %>
-              <% first_additional_image_path= Image.where(:product_id => @product.id, :is_main => false).first.path %>
-              <%= link_to image_tag(first_additional_image_path, :class => 'img-rounded',
-                                    :style => "width:120%;height:auto"), "#" %>
-          <% else %>
-              <%= link_to image_tag(standard_foto_path, :class => 'img-rounded',
-                                    :style => "width:120%;height:auto"), "#" %>
-
-          <% end %>
+        <div class="col-xs-6" data-toggle="modal" data-target="#myModal">
+          <%= link_to image_tag(second_image_path, :class => 'img-rounded',
+                                :style => "width:120%;height:auto"), "#" %>
         </div>
 
-
-        <div class="col-xs-6">
-          <% if first_additional_image_path=="" %>
-              <%= link_to image_tag(standard_foto_path, :class => 'img-rounded',
-                                    :style => "width:120%;height:auto"), "#" %>
-          <% else %>
-              <% second_additional_image_absent= (Image.where(:product_id => @product.id, :is_main => false).length==1) %>
-              <% if second_additional_image_absent %>
-                  <%= link_to image_tag(standard_foto_path, :class => 'img-rounded',
-                                        :style => "width:120%;height:auto"), "#" %>
-              <% else %>
-                  <% second_additional_image_path= (Image.where(:product_id => @product.id, :is_main => false)).
-                          where.not(:path => first_additional_image_path).first.path %>
-                  <%= link_to image_tag(second_additional_image_path, :class => 'img-rounded', :style => "width:120%;height:auto"), "#" %>
-              <% end %>
-          <% end %>
+        <div class="col-xs-6" data-toggle="modal" data-target="#myModal">
+          <%= link_to image_tag(third_image_path, :class => 'img-rounded',
+                                :style => "width:120%;height:auto"), "#" %>
         </div>
 
       </div>
     </div>
+
     <div class="col-xs-6">
       <h4 class="text-left">Product description:</h4>
       <%= @product.descr %>
-
     </div>
+
     <div class="col-xs-3">
       <%= form_for @order_item, remote: true do |f| %>
           <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency @product.price %></span>
@@ -75,7 +64,7 @@
             <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
             <div class="input-group-btn">
               <%= f.hidden_field :product_id, value: @product.id %>
-              <%= f.submit "Add to Cart", class: "btn btn-primary", id:"AddToCart", data:{url:current_user.nil?} %>
+              <%= f.submit "Add to Cart", class: "btn btn-primary", id: "AddToCart", data: {url: current_user.nil?} %>
             </div>
           </div>
       <% end %>
@@ -85,6 +74,70 @@
         <%= link_to "Back", products_index_url, :method => :get, :class => "btn btn-danger" %>
       </div>
 
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Plants store</h4>
+        </div>
+        <div class="modal-body">
+
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <%= image_tag(first_image_path, :class => 'img-rounded',
+                              :style => "width:400px;height:auto") %>
+                <div class="carousel-caption">
+                  <%= @product.name %> 1
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag(second_image_path, :class => 'img-rounded',
+                              :style => "width:400px;height:auto") %>
+
+                <div class="carousel-caption">
+                  <%= @product.name %> 2
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag(third_image_path, :class => 'img-rounded',
+                              :style => "width:400px;height:auto") %>
+
+                <div class="carousel-caption">
+                  <%= @product.name %> 3
+                </div>
+              </div>
+
+            </div>
+
+
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
     </div>
   </div>
 
