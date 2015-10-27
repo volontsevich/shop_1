@@ -10,4 +10,12 @@ class HomeController < ApplicationController
     end
   end
 
+  def contacts
+
+  end
+
+  def delivery
+
+  end
+
 end

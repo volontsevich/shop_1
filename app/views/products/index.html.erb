@@ -1,29 +1,40 @@
 <div id="products">
   <h2 class="text-center">Products for Sale</h2>
 
-  <div class="row">
-    <div class="col-xs-2">
-      <div id="first_menu_block">
-        <%= form_tag(products_path, :method => "get", :class => "form-search") do %>
-
-            <input class="input-medium search-query col-xs-8 " id="search" name="search" type="text" value=""
-                   placeholder="Search"/>
-
-            <%= button_tag "Go", {class: "btn btn-default btn-md"} %>
-
-        <% end %>
-
-      </div>
-      <br>
-
-      <div id="second_menu_block">
-        <%= link_to "Low price (< 3$)", products_index_url+"?price=low", class: "btn btn-default", style: "width:150px;" %>
-        <%= link_to "High price ( > 3$)", products_index_url+"?price=high", class: "btn btn-default", style: "width:150px;" %>
-        <%= link_to "All prices", products_index_url+"?price=all", class: "btn btn-default", style: "width:150px;" %>
-
-
-      </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-content modal-header" style="padding:35px 50px;">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>You must be logged in!</h4>
     </div>
+  </div>
+
+  <div class="row">
+    <nav class="col-xs-2">
+      <div class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80">
+        <div id="first_menu_block">
+          <%= form_tag(products_path, :method => "get", :class => "form-search") do %>
+
+              <input class="input-medium search-query " style="width: 100px" id="search" name="search" type="text" value=""
+                     placeholder="Search"/>
+
+              <%= button_tag "Go", {class: "btn btn-default btn-md"} %>
+
+          <% end %>
+
+        </div>
+
+
+        <div id="second_menu_block">
+          <%= link_to "Low price (< 3$)", products_index_url+"?price=low", class: "btn btn-default", style: "width:150px;" %>
+          <br>
+          <%= link_to "High price ( > 3$)", products_index_url+"?price=high", class: "btn btn-default", style: "width:150px;" %>
+          <br>
+          <%= link_to "All prices", products_index_url+"?price=all", class: "btn btn-default", style: "width:150px;" %>
+
+
+        </div>
+      </div>
+    </nav>
     <div class="col-xs-10">
       <% @products.each do |product| %>
           <%= render "product_row", product: product, order_item: @order_item %>

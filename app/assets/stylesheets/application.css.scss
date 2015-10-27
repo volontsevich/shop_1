@@ -53,3 +53,12 @@ h2.wtext, .field label{
 .main{
   padding-top:100px;
 }
+.plants-menu{
+  background:linear-gradient(to bottom, rgba(255, 255, 255,0), rgba(255, 255, 255,0.2));
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.plants-menu:hover {
+  background:linear-gradient(to bottom, rgba(255, 255, 255,0), rgba(255, 255, 255,0.5));
+
+}

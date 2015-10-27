@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  get 'home/contacts'
+
+  get 'home/delivery'
+
   devise_for :users
 
   resources :products, only: [:index, :show]
