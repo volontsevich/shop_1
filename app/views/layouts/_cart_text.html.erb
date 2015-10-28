@@ -1,2 +1,2 @@
-<span class="glyphicon glyphicon-shopping-cart" style="color: #ffdd35;"><%= link_to "Cart (#{current_order.order_items.size}), #{number_to_currency current_order.subtotal} ", cart_path,
-            class: "store", style: "text-decoration: none" %></span>
+<span class="glyphicon glyphicon-shopping-cart" style="color: #ffdd35;font-size: small;"></span><%= link_to " Cart (#{current_order.order_items.size}), #{number_to_currency current_order.subtotal} ", cart_path,
+            class: "store", style: "text-decoration: none" %>

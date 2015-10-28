@@ -14,9 +14,16 @@
 
         <div id="first_menu_block">
 
-          <form class="form-search">
-            <input type="text" class="input-medium search-query">
-            <button type="submit" class="btn">Найти</button>
+          <form action="/products" accept-charset="UTF-8" method="get"class="form-search">
+          <input name="utf8" type="hidden" value="&#x2713;"/>
+
+          <input type="text" name="search" id="search" placeholder="Search for..."
+                 style="padding: 0;height:34px;margin: 0;"
+                 class="bl input-medium search-query"/>
+          <button type="submit" style="height:34px",class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span>
+          </button>
+
           </form>
 
         </div>
