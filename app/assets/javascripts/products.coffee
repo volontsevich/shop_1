@@ -10,8 +10,6 @@ $(document).on "mouseover", ".clickable-area", ->
 $(document).on "mouseover", ".plants-menu", ->
   $('.plants-menu').css( 'cursor', 'pointer' )
 
-
-
 $(document).on "click", "#AddToCart", ->
   if $(this).data("url")
-    alert("You must be logged in!")
+    $('#modal').modal();
