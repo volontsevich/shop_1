@@ -4,6 +4,13 @@
   <div class="col-xs-6 text-right"><h2><%= link_to "My orders", orders_index_path %></h2></div>
 </div>
 
+<div class="well">
+<div class="col-xs-2"><h2 class="text-center">Photo</h2></div>
+<div class="col-xs-2"><h2 class="text-center">Product</h2></div>
+<div class="col-xs-2"><h2 class="text-center">Price</h2></div>
+<div class="col-xs-2"><h2 class="text-center">Q-ty</h2></div>
+<div class="col-xs-2"><h2 class="text-center">Total</h2></div>
+<div class="col-xs-2"><h2 class="text-center">Action</h2></div>
 
 <% if !@order_item.nil? && @order_item.errors.any? %>
     <div class="alert alert-danger">
@@ -29,7 +36,7 @@
         <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
 
     <% end %>
-    <div class="well">
+<hr style="border-color: black;">
       <div class="row text-right">
         <h2>Order subtotal is <%= number_to_currency current_order.subtotal %></h2>
 
@@ -37,6 +44,7 @@
           <%= link_to "Pay this order", "#", class: "btn btn-primary" %>
         </div>
       </div>
-    </div>
+
 
 <% end %>
+</div>

@@ -34,20 +34,13 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  min-width:1000px; /* suppose you want minimun width of 1000px */
+  width: auto !important;  /* Firefox will set width as auto */
+  width:1000px;
 }
 
-#wrapper {
-  min-height: 100%;
-  margin-bottom: -50px;
-}
 
-* html #wrapper {
-  height: 100%;
-}
 
-#page-buffer {
-  height: 50px;
-}
 
 h2.wtext, .field label,.field em, #flash_alert {
   color: white;
@@ -72,12 +65,54 @@ h2.wtext, .field label,.field em, #flash_alert {
 .plants-menu:hover {
   background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
 }
-#coco.row, #footer.row{
-  margin-left: 0px;
-  margin-right: 0px;
-}
+
 .vcenter{
   display: inline-block;
   vertical-align: middle;
   float: none;
+}
+.without_padding{
+padding-right:0px;
+  padding-left:0px;
+}
+.without_margin{
+   margin-left: 0px;
+   margin-right: 0px;
+ }
+
+#wrapper {
+  min-height: 95%;
+  margin-bottom: -30px;
+}
+
+* html #wrapper {
+  height: 100%;
+}
+#page-boofer {
+  height: 30px;
+}
+
+.container{
+  min-width:500px;
+}
+@media (min-width:768px) {
+  #header_links {
+    width:750px
+  }
+}
+@media (min-width:992px) {
+  #header_links {
+    width:970px
+  }
+}
+@media (min-width:1200px) {
+  #header_links{
+    width:1170px
+  }
+}
+#header_links{
+padding-right:15px;
+  padding-left:15px;
+  margin-left: auto;
+  margin-right: auto;
 }

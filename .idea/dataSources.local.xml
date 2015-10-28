@@ -4,20 +4,14 @@
     <data-source name="Rails untitled1: development" uuid="dce9611d-b42f-4f18-84ef-b650e3e223cc">
       <user-name>spadmin</user-name>
       <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
-      <schema-pattern>shop_dev.pg_catalog shop_dev.public</schema-pattern>
-      <default-schemas>shop_dev.pg_catalog shop_dev.public</default-schemas>
     </data-source>
     <data-source name="Rails untitled1: test" uuid="bcc99f54-ea69-4f98-b173-08bad9f83911">
       <user-name>spadmin</user-name>
       <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
-      <schema-pattern>shop_test.pg_catalog shop_test.public</schema-pattern>
-      <default-schemas>shop_test.pg_catalog shop_test.public</default-schemas>
     </data-source>
     <data-source name="Rails untitled1: production" uuid="df7c1b7d-8f4c-43e9-9c66-569d531767a2">
       <user-name>spadmin</user-name>
       <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
-      <schema-pattern>shop_dev.pg_catalog shop_dev.public</schema-pattern>
-      <default-schemas>shop_dev.pg_catalog shop_dev.public</default-schemas>
     </data-source>
   </component>
 </project>
