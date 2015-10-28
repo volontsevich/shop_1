@@ -15,4 +15,3 @@ $(document).on "mouseover", ".plants-menu", ->
 $(document).on "click", "#AddToCart", ->
   if $(this).data("url")
     alert("You must be logged in!")
-

@@ -10,26 +10,26 @@
 
   <div class="row">
     <nav class="col-xs-2">
-      <div class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80">
+      <div class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="0">
         <div id="first_menu_block">
           <%= form_tag(products_path, :method => "get", :class => "form-search") do %>
-
-              <input class="input-medium search-query " style="width: 100px" id="search" name="search" type="text" value=""
-                     placeholder="Search"/>
-
-              <%= button_tag "Go", {class: "btn btn-default btn-md"} %>
-
+              <div class="input-group">
+                <%= text_field_tag 'search', nil, placeholder: 'Search for...', class: "form-control", style: "width:130px" %>
+                <span class="input-group-btn">
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div>
           <% end %>
-
         </div>
-
+        <br>
 
         <div id="second_menu_block">
-          <%= link_to "Low price (< 3$)", products_index_url+"?price=low", class: "btn btn-default", style: "width:150px;" %>
+          <%= link_to "Low price (< 3$)", products_index_url+"?price=low", class: "btn btn-default", style: "width:169px;" %>
           <br>
-          <%= link_to "High price ( > 3$)", products_index_url+"?price=high", class: "btn btn-default", style: "width:150px;" %>
+          <%= link_to "High price ( > 3$)", products_index_url+"?price=high", class: "btn btn-default", style: "width:169px;" %>
           <br>
-          <%= link_to "All prices", products_index_url+"?price=all", class: "btn btn-default", style: "width:150px;" %>
+          <br>
+          <%= link_to "All prices", products_index_url+"?price=all", class: "btn btn-default", style: "width:169px;" %>
 
 
         </div>
