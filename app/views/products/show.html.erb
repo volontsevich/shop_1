@@ -1,4 +1,4 @@
-<div id="product_info" class="well">
+<div id="product_info" class="well" style="margin-left:9px;margin-right:11px">
   <h2 class="text-center">  <%= @product.name %>
   </h2>
   <% standard_foto_path="logo.jpeg" %>
@@ -61,7 +61,7 @@
           </h4>
 
           <div class="input-group">
-            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+            <%= f.number_field :quantity, value: 1, class: "form-control bl", min: 1 %>
             <div class="input-group-btn">
               <%= f.hidden_field :product_id, value: @product.id %>
               <%= f.submit "Add to Cart", class: "btn btn-warning", id: "AddToCart", data: {url: current_user.nil?} %>
@@ -141,5 +141,11 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modal" role="dialog">
+    <div class="modal-dialog modal-content modal-header" style="padding:35px 50px;">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>You must be logged in!</h4>
+    </div>
+  </div>
 
 </div>
