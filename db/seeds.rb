@@ -5,12 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Image.delete_all
+Product.delete_all
+
 ProductCategory.delete_all
 ProductCategory.create! id: 1, name: "Plant"
 ProductCategory.create! id: 2, name: "Bonsay"
 ProductCategory.create! id: 3, name: "Flower"
-Image.delete_all
-Product.delete_all
+
 Product.create! id: 1, name: "Fortunella Margarita", price: 6.95, available: true,product_category_id:1,
                 descr: "Кумкват Маргарита является самым распространенным кумкватом в мире."
 Product.create! id: 2, name: "Adenium obesum", price: 2.17, available: true,product_category_id:3,
