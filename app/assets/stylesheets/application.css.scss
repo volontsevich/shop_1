@@ -34,9 +34,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  min-width:1000px; /* suppose you want minimun width of 1000px */
-  width: auto !important;  /* Firefox will set width as auto */
-  width:1000px;
 }
 
 label.wtext, h2.wtext, .field label,.field em, #flash_alert {
@@ -48,7 +45,7 @@ label.wtext, h2.wtext, .field label,.field em, #flash_alert {
 }
 
 .main {
-  padding-top: 100px;
+  margin-top: 100px;
 }
 
 .plants-menu {
@@ -162,7 +159,7 @@ input.bl:focus{
 /* позиционируем ползунки */
 .ui-slider-horizontal .ui-slider-handle {
   top: -5px;
-  margin-left: -6px;
+  margin-left: -2px;
 }
 .ui-slider-horizontal .ui-slider-range {
   top: 0;

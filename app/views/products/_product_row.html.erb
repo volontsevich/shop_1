@@ -2,7 +2,7 @@
 
   <div class="row">
 
-    <div class="col-xs-2 text-center clickable-area" data-href=<%= product.id %>>
+    <div class="col-md-2 col-xs-6 text-center clickable-area" data-href=<%= product_path(product) %>>
 
       <% standard_foto_path="logo.jpeg" %>
       <% main_image_check=(Image.where(:product_id => product.id, :is_main => true).first) %>
@@ -12,25 +12,24 @@
           <% main_image_path=standard_foto_path.to_str %>
       <% end %>
       <% main_image_absent= !File.exist?(Rails.root.join('app', 'assets', 'images', main_image_path)) %>
-      <% if !main_image_absent %>
-          <h4><%= link_to image_tag(main_image_path, :class => 'img-rounded',
-                                    :style => "width:120px;height:120px"), product %></h4>
-      <% else %>
-          <h4><%= link_to image_tag(standard_foto_path, :class => 'img-rounded',
-                                    :style => "width:120px;height:120px"), product %></h4>
+      <% if main_image_absent %>
+          <% main_image_path=standard_foto_path %>
       <% end %>
+      <h4 style="width:100%"><%= link_to image_tag(main_image_path, :class => 'img-rounded',
+                                                   :style => "width:100%"), product %></h4>
+
 
     </div>
 
-    <div class="col-xs-3  clickable-area" data-href=<%= product.id %>>
+    <div class="col-md-3 col-xs-6  clickable-area" data-href=<%= product_path(product) %>>
       <h4><%= product.name %></h4>
     </div>
 
-    <div class="col-xs-4 clickable-area" data-href=<%= product.id %>>
+    <div class="col-md-4 col-xs-12 clickable-area" data-href=<%= product_path(product) %>>
       <h4><%= truncate(product.descr, length: 120) %></h4>
     </div>
 
-    <div class="col-xs-3">
+    <div class="col-md-3 col-xs-12">
       <%= form_for order_item, remote: true do |f| %>
           <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span>
           </h4>

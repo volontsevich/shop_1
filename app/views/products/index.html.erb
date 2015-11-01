@@ -2,7 +2,7 @@
   <h2 class="text-center">Products for Sale</h2>
 
   <div>
-    <div class="col-xs-3 ">
+    <div class="col-md-3 col-xs-5 ">
       <div class="nav nav-pills nav-stacked " data-spy="affix" data-offset-top="0">
 
         <div id="first_menu_block">
@@ -12,7 +12,7 @@
 
             <input type="text" name="search" id="search" placeholder="Search for..."
                    style="padding: 0;height:34px;margin: 0;"
-                   class="bl input-medium search-query"/>
+                   class="bl  search-query"/>
             <button type="submit" style="height:34px" ,class="btn btn-default">
               <span class="glyphicon glyphicon-search"></span>
             </button>
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-9 ">
+    <div class="col-md-9 col-xs-7 ">
       <% @products.each do |product| %>
           <%= render "product_row", product: product, order_item: @order_item %>
       <% end %>
