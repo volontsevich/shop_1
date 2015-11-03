@@ -3,13 +3,11 @@
 
   <div>
     <div class="col-md-3 col-xs-5 ">
-      <div class="nav nav-pills nav-stacked " data-spy="affix" data-offset-top="0">
+      <div class="nav nav-pills nav-stacked " data-spy="affix" data-offset-top="0"style="width:211px">
 
         <div id="first_menu_block">
-
           <form action="/products" accept-charset="UTF-8" method="get" class="form-search">
             <input name="utf8" type="hidden" value="&#x2713;"/>
-
             <input type="text" name="search" id="search" placeholder="Search for..."
                    style="padding: 0;height:34px;margin: 0;"
                    class="bl  search-query"/>
@@ -18,33 +16,32 @@
             </button>
             <p></p>
           </form>
-
         </div>
-
 
         <div id="second_menu_block">
-          <%= link_to "Plant", products_path+"?category=plant", class: "btn btn-default", style: "width:100%;" %>
-          <%= link_to "Flower", products_path+"?category=flower", class: "btn btn-default",style: "width:100%;" %>
-          <%= link_to "Bonsay", products_path+"?category=bonsay", class: "btn btn-default", style: "width:100%;" %>
+          <%= link_to "Plant", products_path+"?category=plant", class: "btn btn-default",
+                      style: "width:211px;" %>
+          <br>
+          <%= link_to "Flower", products_path+"?category=flower", class: "btn btn-default",
+                      style: "width:211px;" %><br>
+          <%= link_to "Bonsay", products_path+"?category=bonsay", class: "btn btn-default",
+                      style: "width:211px;" %>
 
 
-        </div>
         <div id="slider">
           <form action="/products">
             <p></p>
-
             <p>
               <label for="amount" class="wtext">Price range:</label>
               <input type="text" id="amount" name="amount" readonly style="border:0; color:#f6931f; font-weight:bold;width:90px">
             </p>
-
             <div id="slider-range"></div>
             <p></p>
             <div style="width: 100%" class="text-center"><button type="submit">
               <span>Filter price</span>
             </button></div>
           </form>
-        </div>
+        </div></div>
       </div>
     </div>
     <div class="col-md-9 col-xs-7 ">
