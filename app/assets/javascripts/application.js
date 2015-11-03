@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
@@ -22,8 +23,8 @@ $(document).ready(
             range: true,
             min: 0.0,
             step: 0.01,
-            max:  7,
-            values: [0, 7],
+            max:  31,
+            values: [0, 31],
             slide: function (event, ui) {
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             }
