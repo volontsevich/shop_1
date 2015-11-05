@@ -16,15 +16,22 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
-
+var max = 0;
 $(document).ready(
     $(function () {
+        $("h4>span").each(function () {
+            m = parseFloat($(this).text());
+            if (m >= max) {
+                max = m;
+            }
+        })
+
         $("#slider-range").slider({
             range: true,
-            min: 0.0,
+            min: 0,
             step: 0.01,
-            max:  31,
-            values: [0, 31],
+            max: max + 0.01,
+            values: [0, max + 0.01],
             slide: function (event, ui) {
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             }
