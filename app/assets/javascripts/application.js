@@ -19,7 +19,7 @@
 var max = 0;
 $(document).ready(
     $(function () {
-        $("h4>span").each(function () {
+        $(".price").each(function () {
             m = parseFloat($(this).text());
             if (m >= max) {
                 max = m;
