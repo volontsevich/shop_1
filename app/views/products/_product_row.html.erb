@@ -31,7 +31,8 @@
 
     <div class="col-md-3 col-xs-12">
       <%= form_for order_item, remote: true do |f| %>
-          <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span>
+          <h4 class="text-right">Unit Price: <span style="color: green">$</span>
+            <span style="color: green"class ="price"><%=product.price %></span>
           </h4>
 
           <div class="input-group">
