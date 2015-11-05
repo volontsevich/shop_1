@@ -16,15 +16,25 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
-var max = 0;
+
 $(document).ready(
     $(function () {
-        $(".price").each(function () {
-            m = parseFloat($(this).text());
-            if (m >= max) {
-                max = m;
-            }
-        })
+
+        //Searching max price value in current page
+        var max = 0;
+        if (!window.location.href.contains("amount="))
+            $(".price").each(function () {
+                m = parseFloat($(this).text());
+                if (m >= max) {
+                    max = m;
+                }
+            })
+        else {
+            cur_url = window.location.href + "";
+            cur_url = cur_url.replace(/[^$]+[$]\d+[.]?\d*-[$]/, "");
+            cur_url = cur_url.replace(/[&].*/, "");
+            max = parseFloat(cur_url);
+        }
 
         $("#slider-range").slider({
             range: true,
@@ -34,9 +44,29 @@ $(document).ready(
             values: [0, max + 0.01],
             slide: function (event, ui) {
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            },
+
+            //Setting href of Filter price button
+            stop: function (event, ui) {
+                var path = window.location.href;
+                if (!path.contains("?")) path += "?"
+                else if (!path.contains("amount="))path += "&"
+                else
+                    path = window.location.pathname + "?";
+                $("#ssilka").attr("href", path + "amount=$" + ui.values[0] + "-$" + ui.values[1]);
             }
         });
+
         $("#amount").val("$" + $("#slider-range").slider("values", 0) +
             " - $" + $("#slider-range").slider("values", 1));
+
+        //Setting href of Filter price button
+        var path = window.location.href;
+        if (!path.contains("?")) path += "?"
+        else if (!path.contains("amount="))path += "&"
+        else
+            path = window.location.pathname + "?";
+        $("#ssilka").attr("href", path + "amount=$" + $("#slider-range").slider("values", 0) +
+            "-$" + $("#slider-range").slider("values", 1));
     })
 )
