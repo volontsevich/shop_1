@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
   }
 
   def self.search(query)
-    where "descr like ? or name like ?", "%#{query}%", "%#{query}%"
+    where "descr ilike ? or name ilike ?", "%#{query}%", "%#{query}%"
   end
 
   def self.category(query)
