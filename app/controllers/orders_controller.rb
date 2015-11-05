@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @orders = Order.all
+    @order_items = OrderItem.where(order_id: params[:id])
   end
 
   def index

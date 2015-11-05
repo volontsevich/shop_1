@@ -3,5 +3,5 @@
   <div class="col-md-3 col-xs-3"><h4><%= order.id %></h4></div>
     <div class="col-md-3 col-xs-3 text-center"><h4><%= number_to_currency order.subtotal %></h4></div>
     <div class="col-md-3 col-xs-3 text-center"><h4><%= OrderStatus.find(order.order_status_id).name %></h4></div>
-    <div class="col-md-3 col-xs-3 text-center"><h4><%= link_to "Open",orders_show_path %></h4></div>
+    <div class="col-md-3 col-xs-3 text-center"><h4><%= link_to "Open",order_path(order) %></h4></div>
   </div>

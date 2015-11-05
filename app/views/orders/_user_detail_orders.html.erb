@@ -1,0 +1,21 @@
+<div class="well" style="margin-left:9px;margin-right:11px">
+  <div class="row">
+    <div class="col-md-3 col-xs-3 text-center"><h4>Product photo</h4></div>
+    <div class="col-md-3 col-xs-3 text-center"><h4>Product name</h4></div>
+    <div class="col-md-3 col-xs-3 text-center"><h4>Quantity</h4></div>
+    <div class="col-md-3 col-xs-3 text-center"><h4>Total price</h4></div>
+  </div>
+  <hr style="border-color: black;">
+
+  <% @order_items.each do |order_item| %>
+      <%= render "order_items", order_item: order_item %>
+
+  <% end %>
+
+  <hr style="border-color: black;">
+  <div class="row text-right">
+    <h2>Order subtotal is <%= number_to_currency Order.find(params[:id]).subtotal %></h2>
+
+  </div>
+
+</div>

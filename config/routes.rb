@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resource :cart, only: [:show]
+  resources :orders, only: [:index, :show]
   resources :order_items, only: [:create, :update, :destroy]
   root to: "home#index"
 

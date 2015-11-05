@@ -1,0 +1,9 @@
+<div class="row text-center">
+  <div class="col-md-3 col-xs-3">
+    <h4><%= link_to image_tag(Image.find_by_product_id(order_item.product_id).path, :class => 'img-rounded',
+                              :style => "width:50%"), product_path(order_item.product) %></h4>
+  </div>
+  <div class="col-md-3 col-xs-3 text-center"><h4><%= Product.find(order_item.product_id).name %></h4></div>
+  <div class="col-md-3 col-xs-3 text-center"><h4><%= order_item.quantity %></h4></div>
+  <div class="col-md-3 col-xs-3 text-center"><h4><%= order_item.total_price %></h4></div>
+</div>
