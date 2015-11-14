@@ -19,7 +19,6 @@
   color: #ffdd35;
 }
 
-
 .light {
   color: #fbffe3;
 }
@@ -36,7 +35,7 @@ html, body {
   padding: 0;
 }
 
-.wtext, .field label,.field em, #flash_alert, #error_explanation {
+.wtext, .field label, .field em, #flash_alert, #error_explanation {
   color: white;
 }
 
@@ -53,75 +52,83 @@ html, body {
   margin-left: -1px;
   margin-right: -1px;
   padding-bottom: 0px;
-  font-size:20px;
+  font-size: 20px;
+  &:hover {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+  }
 }
 
-.plants-menu:hover {
-  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
-}
 
 
-.without_padding{
-padding-right:0px;
-  padding-left:0px;
+.without_padding {
+  padding-right: 0px;
+  padding-left: 0px;
 }
-.without_margin{
-   margin-left: 0px;
-   margin-right: 0px;
- }
+
+.without_margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 #wrapper {
   min-height: 95%;
   margin-bottom: -30px;
+  min-width: 500px;
 }
 
 * html #wrapper {
   height: 100%;
 }
+
 #page-boofer {
   height: 30px;
 }
 
-.container{
-  min-width:500px;
+.container {
+  min-width: 500px;
 }
-@media (min-width:768px) {
+
+@media (min-width: 768px) {
   #header_links {
-    width:750px
+    width: 750px
   }
 }
-@media (min-width:992px) {
+
+@media (min-width: 992px) {
   #header_links {
-    width:970px
+    width: 970px
   }
 }
-@media (min-width:1200px) {
-  #header_links{
-    width:1170px
+
+@media (min-width: 1200px) {
+  #header_links {
+    width: 1170px
   }
 }
-#header_links{
-padding-right:15px;
-  padding-left:15px;
+
+#header_links {
+  padding-right: 15px;
+  padding-left: 15px;
   margin-left: auto;
   margin-right: auto;
 }
 
-input#search{
+input#search {
   border-radius: 5px;
 }
-input.bl:focus{
+
+input.bl:focus {
   border-color: rgba(229, 103, 23, 0.8);
   box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
   outline: 0 none;
 }
 
-.header_top{
-  background:linear-gradient(to top, rgb(138, 101, 50), rgb(73, 21, 1));
+.header_top {
+  background: linear-gradient(to top, rgb(138, 101, 50), rgb(73, 21, 1));
 }
 
-#footer{
-  color:#690c16;
+#footer {
+  color: #690c16;
   padding-left: 10px;
   padding-right: 10px;
 }
