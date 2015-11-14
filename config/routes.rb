@@ -17,16 +17,16 @@ Rails.application.routes.draw do
 
   get 'products/show'
 
-  get 'home/index'
+  match '/index', to: 'home#index', via: 'get'
 
-  get 'home/contacts'
+  match '/contacts', to: 'home#contacts', via: 'get'
 
-  get 'home/delivery'
+  match '/delivery', to: 'home#delivery', via: 'get'
 
   devise_for :users
 
   resources :products, only: [:index, :show]
-  resource :cart, only: [:show]
+  resource :carts, only: [:show]
   resources :orders, only: [:index, :show]
   resources :order_items, only: [:create, :update, :destroy]
   root to: "home#index"

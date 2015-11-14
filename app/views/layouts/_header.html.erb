@@ -20,20 +20,20 @@
   </div>
   <div id="header_links" class="row without_margin">
     <div class="row text-center" style="padding-left:10px;padding-left:10px;margin-left:0;margin-right:0;">
-      <div class="col-xs-2 plants-menu clickable-area" data-href=<%= home_index_path %>>
-        <span class="text-center"><%= link_to "Main", home_index_path, class: "store", style: "text-decoration: none" %></span>
+      <div class="col-xs-2 plants-menu clickable-area" data-href=<%= index_path %>>
+        <span class="text-center"><%= link_to "Main", index_path, class: "store", style: "text-decoration: none" %></span>
       </div>
 
       <div class="col-xs-2 plants-menu clickable-area" data-href=<%= products_index_path %>>
         <span class="text-center"><%= link_to "Products", products_index_path, class: "store", style: "text-decoration: none" %></span>
       </div>
 
-      <div class="col-xs-2 plants-menu clickable-area" data-href=<%= home_contacts_path %>>
-        <span class="text-center"><%= link_to "Contacts", home_contacts_path, class: "store", style: "text-decoration: none" %></span>
+      <div class="col-xs-2 plants-menu clickable-area" data-href=<%= contacts_path %>>
+        <span class="text-center"><%= link_to "Contacts", contacts_path, class: "store", style: "text-decoration: none" %></span>
       </div>
 
-      <div class="col-xs-2 plants-menu clickable-area" data-href=<%= home_delivery_path %>>
-        <span class="glyphicon glyphicon-envelope" style="color: #ffdd35;font-size: small"></span><%= link_to " Delivery", home_delivery_path, class: "store", style: "text-decoration: none" %>
+      <div class="col-xs-2 plants-menu clickable-area" data-href=<%= delivery_path %>>
+        <span class="glyphicon glyphicon-envelope" style="color: #ffdd35;font-size: small"></span><%= link_to " Delivery", delivery_path, class: "store", style: "text-decoration: none" %>
       </div>
       <div class="col-xs-2 plants-menu clickable-area" data-href=<%= carts_show_path %>>
         <% if !current_order.nil? %>
@@ -52,7 +52,7 @@
             <span class="caret"></span>   </span>
         <ul class="dropdown-menu" role="menu">
           <% if user_signed_in? %>
-              <li><%= link_to "Current cart", cart_path %></li>
+              <li><%= link_to "Current cart", carts_path %></li>
               <li><%= link_to "My orders", orders_index_path %></li>
               <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <% else %>
